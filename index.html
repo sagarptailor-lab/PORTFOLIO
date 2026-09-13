@@ -1,0 +1,920 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sagar Tailor | Aviation & Aerospace Portfolio</title>
+  <meta name="description" content="Aviation/Aerospace portfolio — projects, skills, certifications, and contact." />
+
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0B1020;
+      --card:#0F1733cc;
+      --text:#EAF0FF;
+      --muted:#A9B4D0;
+      --line:#1E2A55;
+      --accent:#7C3AED;   /* violet */
+      --accent2:#22D3EE;  /* cyan */
+      --accent3:#F97316;  /* orange */
+      --good:#34D399;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 18% 10%, rgba(124,58,237,.35), transparent 55%),
+        radial-gradient(900px 600px at 80% 22%, rgba(34,211,238,.25), transparent 55%),
+        radial-gradient(900px 650px at 60% 90%, rgba(249,115,22,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 80px}
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,10,18,.86), rgba(7,10,18,.35));
+      border-bottom:1px solid rgba(30,42,85,.65);
+    }
+    .nav-inner{
+      max-width:1100px; margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:750; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: conic-gradient(from 210deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+      box-shadow: 0 12px 30px rgba(124,58,237,.25);
+    }
+    .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .links a{
+      font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      color:var(--text);
+      border-color:rgba(30,42,85,.75);
+      background: rgba(15,23,51,.35);
+    }
+
+    /* Hero */
+    .hero{
+      padding:46px 0 22px;
+      display:grid; grid-template-columns: 1.35fr .65fr; gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,51,.72), rgba(15,23,51,.45));
+      border:1px solid rgba(30,42,85,.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-left{padding:26px}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:13px; color:var(--muted);
+      padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(30,42,85,.8);
+      background: rgba(11,16,32,.45);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--good);
+      box-shadow: 0 0 0 5px rgba(52,211,153,.14);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:46px; line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px; line-height:1.6;
+      max-width:62ch;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(30,42,85,.85);
+      background: rgba(11,16,32,.55);
+      color:var(--text);
+      font-weight:650;
+      font-size:14px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#071024;
+    }
+    .btn.primary:hover{filter:saturate(1.05) brightness(1.02)}
+    .btn small{font-weight:700; opacity:.95}
+
+    .hero-right{
+      padding:18px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .profile-photo-wrap{
+      background: rgba(11,16,32,.45);
+      border:1px solid rgba(30,42,85,.75);
+      border-radius: 16px;
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .profile-photo{
+      width:100%;
+      max-width:260px;
+      aspect-ratio: 4 / 5;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid rgba(124,58,237,.5);
+      box-shadow: 0 18px 40px rgba(124,58,237,.18);
+      display:block;
+    }
+    .stat{
+      padding:16px;
+      display:grid; gap:6px;
+      background: rgba(11,16,32,.45);
+      border:1px solid rgba(30,42,85,.75);
+      border-radius: 16px;
+    }
+    .stat b{font-size:20px}
+    .stat span{color:var(--muted); font-size:13px; line-height:1.4}
+
+    /* Sections */
+    section{margin-top:28px}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section-head p{margin:0; color:var(--muted); font-size:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    .col-8{grid-column: span 8}
+    .col-12{grid-column: span 12}
+    .project-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+    .project-grid .proj {
+      height:100%;
+      border-top: 1px solid rgba(124, 149, 214, 0.28);
+      border-bottom: 1px solid rgba(124, 149, 214, 0.28);
+      box-shadow: 0 8px 24px rgba(10, 15, 28, 0.18);
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .project-grid .proj:first-child{border-top:none}
+    @media (max-width: 900px){
+      .col-6,.col-4,.col-8{grid-column: span 12}
+      .project-grid{grid-template-columns:1fr}
+    }
+
+    .tile{padding:18px}
+    .tile h3{margin:0 0 6px; font-size:16px}
+    .tile p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      font-size:12px; color:var(--text);
+      padding:6px 9px; border-radius:999px;
+      border:1px solid rgba(30,42,85,.85);
+      background: rgba(7,10,18,.35);
+    }
+    .tag.accent{border-color: rgba(34,211,238,.6)}
+    .tag.violet{border-color: rgba(124,58,237,.6)}
+    .tag.orange{border-color: rgba(249,115,22,.55)}
+
+    /* Project cards */
+    .proj{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .proj:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(420px 250px at 10% 15%, rgba(34,211,238,.22), transparent 60%),
+        radial-gradient(420px 250px at 85% 20%, rgba(124,58,237,.20), transparent 60%),
+        radial-gradient(420px 250px at 60% 100%, rgba(249,115,22,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .proj > *{position:relative}
+    .proj-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(30,42,85,.85);
+      background: rgba(11,16,32,.55);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .proj ul{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+    .proj .links{
+      justify-content:flex-start;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    /* Work Experience / media gallery */
+    .experience-card{padding:18px}
+    .experience-card h3{margin:0 0 8px; font-size:18px}
+    .experience-meta{color:var(--muted); font-size:14px; margin-bottom:12px}
+    .experience-card ul{
+      margin:0 0 18px; padding-left:18px;
+      color:var(--muted); line-height:1.6; font-size:14px;
+    }
+    .media-shell{
+      position:relative; overflow:hidden; border-radius:16px;
+      border:1px solid rgba(30,42,85,.85); background:rgba(11,16,32,.45);
+      padding:12px 0;
+    }
+    .media-track{
+      display:flex; gap:14px; width:max-content; align-items:center;
+      animation: scrollMedia 32s linear infinite;
+      will-change: transform;
+    }
+    @keyframes scrollMedia {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .media-card{
+      flex:0 0 auto; width:260px; height:310px; border-radius:16px; overflow:hidden;
+      background: rgba(15,23,51,.78); border:1px solid rgba(30,42,85,.85);
+      box-shadow: 0 12px 26px rgba(0,0,0,.2);
+    }
+    .media-card img, .media-card video{
+      width:100%; height:100%; object-fit:cover; display:block;
+      background:#091120;
+    }
+    .media-shell:hover .media-track{animation-play-state: paused;}
+
+    .cascade-gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+      margin-top:16px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(30,42,85,.85);
+      background: linear-gradient(180deg, rgba(11,16,32,.5), rgba(11,16,32,.18));
+      overflow:hidden;
+    }
+    .cascade-column{
+      position:relative;
+      height:340px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(124,149,214,.2);
+      background: rgba(7,10,18,.2);
+    }
+    .cascade-track{
+      position:absolute;
+      inset:0;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      width:max-content;
+      padding:0 10px;
+      animation: cascadeLeft 36s linear infinite;
+    }
+    .cascade-column:hover .cascade-track{animation-play-state: paused;}
+    @keyframes cascadeLeft {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .cascade-item{
+      flex:0 0 auto;
+      width:210px;
+      height:190px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(124,149,214,.4);
+      background: rgba(7,10,18,.45);
+      box-shadow: 0 12px 26px rgba(0,0,0,.24);
+    }
+    .cascade-item.tall{height:230px}
+    .cascade-item img, .cascade-item video{
+      width:100%; height:100%; display:block; object-fit:cover; background:#071024;
+    }
+
+    .lightbox-overlay{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      background: rgba(2, 5, 12, 0.88);
+      z-index:1000;
+      backdrop-filter: blur(6px);
+    }
+    .lightbox-overlay.visible{display:flex}
+    .lightbox-content{
+      position:relative;
+      max-width:min(94vw, 1100px);
+      max-height:88vh;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(124,149,214,.28);
+      background: rgba(7,10,18,.8);
+      box-shadow: 0 40px 80px rgba(0,0,0,.55);
+    }
+    .lightbox-content img,
+    .lightbox-content video{
+      display:block;
+      max-width:100%;
+      max-height:88vh;
+      width:auto;
+      height:auto;
+      background:#050914;
+    }
+    .lightbox-close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:36px;
+      height:36px;
+      border:none;
+      border-radius:50%;
+      background: rgba(7,10,18,.8);
+      color:#fff;
+      font-size:22px;
+      line-height:1;
+      cursor:pointer;
+      border:1px solid rgba(124,149,214,.35);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:34px;
+      padding-top:20px;
+      border-top:1px solid rgba(30,42,85,.7);
+      color:var(--muted);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); font-weight:650;">Portfolio</div>
+          <div style="font-size:15px;">Sagar Tailor</div>
+        </div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker"><span class="dot"></span> Aerospace Engineer</div>
+        <h1>Designing insight,<br>driven by aviation.</h1>
+        <p class="sub">
+          I’m <b>Sagar Tailor</b>, an aerospace engineering graduate with hands-on experience in aircraft maintenance, CAD, and CFD gained through industry training and independent engineering projects.
+          I am proficient in SolidWorks, CATIA V5, ANSYS Fluent, and MATLAB, and I am seeking a graduate engineering role in aircraft structures, design, simulation, or manufacturing.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Contact <small>↗</small></a>
+          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="mailto:sagar.p.tailor@gmail.com" target="_blank" rel="noreferrer">Email</a>
+          <a class="btn" href="#projects">View Work</a>
+        </div>
+
+        <div class="tags" style="margin-top:18px">
+          <span class="tag accent">Aircraft systems</span>
+          <span class="tag violet">CFD &amp; FEA</span>
+          <span class="tag orange">Safety-first mindset</span>
+          <span class="tag">Dubai, UAE</span>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <div class="profile-photo-wrap">
+          <img class="profile-photo" src="file:///C:/Users/sagar/Downloads/PORTFOLIO/photo.jpeg" alt="Sagar Tailor portrait" />
+        </div>
+      </div>
+    </div>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <h2>Work Experience</h2>
+          <p>Hands-on maintenance and engineering support in a live aircraft environment.</p>
+        </div>
+      </div>
+
+      <div class="card experience-card">
+        <h3>Aircraft Maintenance Trainee Intern — Emirates (EK Engineering)</h3>
+        <div class="experience-meta">Jan 2026 – May 2026</div>
+        <ul>
+          <li>Supported routine inspection and maintenance of aircraft systems and components, including assembly, disassembly, inspection, and repair procedures using specialized tooling.</li>
+          <li>Maintained full adherence to safety and procedural protocols in a safety-critical environment.</li>
+          <li>Assisted assembly and disassembly of A380 main wheel and brake assemblies, including tire changes, and independently performed a B777 fan cowl dry cycle check to verify correct opening/closing operation.</li>
+          <li>Carried out NDT inspection tasks identifying cracks and defects on structural screws and panels; assisted A380 belly panel replacement and roller-assembly work in forward and aft cargo bays.</li>
+          <li>Provided hands-on assembly and integration support for structural components, ensuring fit, alignment, and compliance with engineering drawings and GD&amp;T.</li>
+          <li>Applied job-card workflow, engineering manuals including ATA 100, S1000D, AMM, and CMM, and technical documentation practices to maintain part traceability and configuration control; adhered to PPE, FOD-prevention, and procedural-compliance standards.</li>
+        </ul>
+
+        <div class="media-shell" aria-label="EK Engineering media gallery">
+          <div class="media-track" id="mediaTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h2>Projects</h2>
+          <p>Selected work designed around engineering thinking and real-world aviation outcomes.</p>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <article class="card proj">
+          <div class="proj-top">
+            <div>
+              <h3>Original Fixed-Wing Aircraft — Design, Fabrication &amp; Flight Test</h3>
+              <p style="margin:0; color:var(--muted); font-size:14px;">
+                Impact: <b style="color:var(--text)">Applied design-for-manufacture principles to create a functional aircraft concept from model to fabrication.</b>
+              </p>
+            </div>
+            <div class="pill">Design / Fabrication</div>
+          </div>
+          <ul>
+            <li><b>Goal:</b> Design and iterate airframe components while simplifying manufacturing and assembly.</li>
+            <li><b>Approach:</b> Modelled the aircraft in SolidWorks and applied design-for-manufacture techniques to improve practical fabrication.</li>
+            <li><b>Outcome:</b> Produced a design-ready concept with a stronger focus on buildability, structure, and assembly efficiency.</li>
+          </ul>
+
+          <div class="cascade-gallery" id="fixedWingGallery" aria-label="Fixed-wing aircraft media gallery"></div>
+
+          <div class="links" style="display:flex">
+            <a class="btn" href="#contact">Case Study</a>
+            <a class="btn" href="#contact">Files</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="proj-top">
+            <div>
+              <h3><a href="file:///C:/Users/sagar/Downloads/PORTFOLIO/REPORT%20AEROSPACE%20APPLICATION%201.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: none;">Turbulence Model Accuracy on a Low-Reynolds-Number E387 Airfoil</a></h3>
+              <p style="margin:0; color:var(--muted); font-size:14px;">
+                Impact: <b style="color:var(--text)">Validated aerodynamic model accuracy using CFD and benchmark wind-tunnel data.</b>
+              </p>
+            </div>
+            <div class="pill">CFD / ANSYS</div>
+          </div>
+          <ul>
+            <li><b>Goal:</b> Develop and validate a 2D CFD model of the Eppler E387 airfoil for low-Reynolds-number flow conditions.</li>
+            <li><b>Approach:</b> Performed mesh generation, solver setup, and aerodynamic analysis in ANSYS Fluent at Reynolds numbers of 200,000 and 300,000.</li>
+            <li><b>Outcome:</b> Compared k–ω SST and Transition SST models against UIUC wind-tunnel data and demonstrated improved accuracy with Transition SST.</li>
+          </ul>
+          <div class="links" style="display:flex">
+            <a class="btn" href="file:///C:/Users/sagar/Downloads/PORTFOLIO/REPORT%20AEROSPACE%20APPLICATION%201.pdf" target="_blank" rel="noopener noreferrer">Report &amp; Case Study</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="proj-top">
+            <div>
+              <h3>RTA Feasibility Study — Drones in Traffic Engineering &amp; Planning</h3>
+              <p style="margin:0; color:var(--muted); font-size:14px;">
+                Summary: A pilot study selected as one of five student volunteers to examine drone technology and regulatory constraints for traffic-monitoring and planning applications.
+              </p>
+            </div>
+            <div class="pill">Research / Innovation</div>
+          </div>
+          <ul>
+            <li><b>Role:</b> Selected as 1 of 5 student volunteers in a university-wide pilot partnership between AtkinsRealis and the Roads and Transport Authority.</li>
+            <li><b>Focus:</b> Evaluated drone applications in traffic engineering while considering operational and regulatory constraints.</li>
+            <li><b>Outcome:</b> Contributed to early-stage feasibility research on drone-based monitoring and planning capabilities.</li>
+          </ul>
+          <div class="links" style="display:flex">
+            <a class="btn" href="#contact">Case Study</a>
+            <a class="btn" href="#contact">Research</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h2>Skills</h2>
+          <p>Core technical strengths and practical professional capabilities.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card tile col-4">
+          <h3>Engineering</h3>
+          <p>Aircraft fundamentals, aircraft maintenance, aircraft structures, aerospace systems, safety awareness, and technical troubleshooting.</p>
+          <div class="tags">
+            <span class="tag accent">Systems</span>
+            <span class="tag">Safety</span>
+            <span class="tag violet">Structures</span>
+          </div>
+        </div>
+
+        <div class="card tile col-4">
+          <h3>Software / Tools</h3>
+          <p>CATIA V5, SolidWorks, AutoCAD, Fusion 360, ANSYS Fluent, ANSYS Mechanical, MATLAB, CFD, FEA, and technical reporting tools.</p>
+          <div class="tags">
+            <span class="tag">CATIA</span>
+            <span class="tag accent">SolidWorks</span>
+            <span class="tag">ANSYS</span>
+          </div>
+        </div>
+
+        <div class="card tile col-4">
+          <h3>Professional</h3>
+          <p>Technical documentation, teamwork, job-card workflow, engineering manuals, procedural compliance, and continuous improvement mindset.</p>
+          <div class="tags">
+            <span class="tag orange">Execution</span>
+            <span class="tag">PPE &amp; FOD</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div>
+          <h2>Education</h2>
+          <p>Academic foundation relevant to aviation and aerospace engineering.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card tile col-12">
+          <h3>Applied Bachelor’s in Aerospace Engineering</h3>
+          <p>
+            <b style="color:var(--text)">Emirates Aviation University</b> | Jan 2024 – May 2026 <br />
+            GPA: 3.7/4. Strong foundation in aerospace systems, applied engineering practice, and technical problem solving.
+          </p>
+        </div>
+
+        <div class="card tile col-12" style="margin-top:14px;">
+          <h3>Applied Bachelor’s in Aerospace Engineering (Top-Up)</h3>
+          <p>
+            <b style="color:var(--text)">Coventry University</b> | Expected Dec 2026 <br />
+            GPA: 3.7/4. Advanced academic pathway focused on aerospace engineering design and analysis.
+          </p>
+        </div>
+      </div>
+
+      <div class="card tile col-12" style="margin-top:14px;">
+        <h3>Relevant Coursework</h3>
+        <div class="tags">
+          <span class="tag accent">Aerodynamics</span>
+          <span class="tag">Aircraft Design</span>
+          <span class="tag violet">Aircraft Structures</span>
+          <span class="tag">Flight Mechanics</span>
+          <span class="tag orange">Propulsion Systems</span>
+          <span class="tag">CFD</span>
+          <span class="tag">Fluid Mechanics</span>
+          <span class="tag accent">Thermodynamics</span>
+          <span class="tag">Strength of Materials</span>
+          <span class="tag violet">Aerospace Materials &amp; Manufacturing</span>
+          <span class="tag">Aircraft Stability &amp; Control</span>
+          <span class="tag orange">Avionics Fundamentals</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="section-head">
+        <div>
+          <h2>Certifications</h2>
+          <p>Professional training and credentials relevant to aerospace and engineering practice.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card tile col-12" style="border: 1px solid rgba(33,85,146,.18); box-shadow: 0 10px 20px rgba(15,39,69,.08); background: linear-gradient(135deg, rgba(230,239,250,.9), rgba(255,255,255,.98)); transform: translateY(-2px);">
+          <h3>CSWA Certified SolidWorks Design Associate</h3>
+          <p>Dassault Systèmes · 2026 · <a href="file:///C:/Users/sagar/Downloads/PORTFOLIO/CERTIFICATE.png" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Proof of Certificate</a></p>
+        </div>
+        <div class="card tile col-6">
+          <h3>British Airways Engineering Job Simulation</h3>
+          <p>Forage · 2025 · <a href="#contact" style="text-decoration:underline;">Certificate</a></p>
+        </div>
+        <div class="card tile col-6">
+          <h3>GE Aerospace Explore Engineering Job Simulation</h3>
+          <p>Forage · 2025 · <a href="#contact" style="text-decoration:underline;">Certificate</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>Open to aviation, aerospace, and engineering opportunities.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card tile col-8">
+          <h3>Message</h3>
+          <p style="margin-bottom:12px">
+            Email: <a href="mailto:sagar.p.tailor@gmail.com" style="text-decoration:underline;">sagar.p.tailor@gmail.com</a><br />
+            Phone: <a href="tel:+971585733073" style="text-decoration:underline;">+971 58 573 3073</a><br />
+            Location: Dubai, UAE · Open to: graduate engineering roles in aircraft design, structures, simulation, and manufacturing
+          </p>
+
+          <form onsubmit="return openMail(event)">
+            <div class="grid" style="gap:10px">
+              <div class="col-6">
+                <label style="display:block; font-size:12px; color:var(--muted); margin:0 0 6px">Name</label>
+                <input id="name" required
+                  style="width:100%; padding:10px 12px; border-radius:14px; border:1px solid rgba(30,42,85,.85); background:rgba(7,10,18,.35); color:var(--text); outline:none"
+                  placeholder="Your name" />
+              </div>
+              <div class="col-6">
+                <label style="display:block; font-size:12px; color:var(--muted); margin:0 0 6px">Email</label>
+                <input id="email" type="email" required
+                  style="width:100%; padding:10px 12px; border-radius:14px; border:1px solid rgba(30,42,85,.85); background:rgba(7,10,18,.35); color:var(--text); outline:none"
+                  placeholder="you@company.com" />
+              </div>
+              <div class="col-12">
+                <label style="display:block; font-size:12px; color:var(--muted); margin:0 0 6px">Message</label>
+                <textarea id="msg" required rows="4"
+                  style="width:100%; padding:10px 12px; border-radius:14px; border:1px solid rgba(30,42,85,.85); background:rgba(7,10,18,.35); color:var(--text); outline:none"
+                  placeholder="Tell me what you’re looking for..."></textarea>
+              </div>
+              <div class="col-12" style="display:flex; gap:10px; flex-wrap:wrap">
+                <button class="btn primary" type="submit">Send Email ↗</button>
+                <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="btn" href="#projects">Portfolio</a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card tile col-4">
+          <h3>Links</h3>
+          <p style="line-height:1.8">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" style="text-decoration:underline;">LinkedIn</a><br/>
+            <a href="mailto:sagar.p.tailor@gmail.com" style="text-decoration:underline;">Email</a><br/>
+            <a href="tel:+971585733073" style="text-decoration:underline;">Phone</a><br/>
+            <a href="#contact" style="text-decoration:underline;">Contact</a>
+          </p>
+          <div class="tags">
+            <span class="tag accent">Vibrant</span>
+            <span class="tag violet">Dark</span>
+            <span class="tag orange">Aerospace</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Sagar Tailor</div>
+      <div>Built for aviation, aerospace, and technical opportunities</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const lightboxOverlay = document.createElement('div');
+    lightboxOverlay.className = 'lightbox-overlay';
+    lightboxOverlay.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" type="button" aria-label="Close enlarged media">×</button>
+      </div>
+    `;
+    document.body.appendChild(lightboxOverlay);
+
+    const lightboxContent = lightboxOverlay.querySelector('.lightbox-content');
+    const lightboxClose = lightboxOverlay.querySelector('.lightbox-close');
+
+    const openLightbox = (src, isVideo) => {
+      lightboxContent.innerHTML = '';
+      const media = isVideo ? document.createElement('video') : document.createElement('img');
+      media.src = src;
+      media.alt = 'Enlarged media';
+      media.style.maxWidth = '100%';
+      media.style.maxHeight = '88vh';
+      media.style.display = 'block';
+
+      if (isVideo) {
+        media.controls = true;
+        media.autoplay = true;
+        media.muted = true;
+        media.loop = true;
+        media.playsInline = true;
+      }
+
+      const closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'lightbox-close';
+      closeBtn.setAttribute('aria-label', 'Close enlarged media');
+      closeBtn.textContent = '×';
+      closeBtn.addEventListener('click', () => lightboxOverlay.classList.remove('visible'));
+
+      lightboxContent.appendChild(closeBtn);
+      lightboxContent.appendChild(media);
+      lightboxOverlay.classList.add('visible');
+    };
+
+    const closeLightbox = () => lightboxOverlay.classList.remove('visible');
+    lightboxOverlay.addEventListener('click', (event) => {
+      if (event.target === lightboxOverlay) closeLightbox();
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    document.addEventListener('click', (event) => {
+      const target = event.target.closest('img, video');
+      if (!target) return;
+
+      const src = target.currentSrc || target.src || target.getAttribute('src');
+      if (!src) return;
+
+      const isVideo = target.tagName.toLowerCase() === 'video' || /\.(mp4|mov|webm|avi)$/i.test(src);
+      openLightbox(src, isVideo);
+    });
+
+    const mediaFiles = [
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/WhatsApp%20Image%202026-09-13%20at%2015.42.30.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/first.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/2.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/3.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/4.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/5.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/6.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/7.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/8.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/9.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/10.jpeg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/EK%20ENG/11.mp4"
+    ];
+
+    const fixedWingMediaFiles = [
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/03CFDEEB-DCA6-4B33-901B-8E9982E812FB.mp4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/0913F2AC-E092-48B9-910A-1F7FA2B97E44.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/19306C54-B5D3-4E79-A059-62EF968E0B78.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/24345833-BF32-4DAD-8E8E-D258901C959A.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/24345833-BF32-4DAD-8E8E-D258901C959A.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/27E5D52B-279F-40FA-ABDC-3C35EC2E137E.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/3017D1C9-A09D-46CA-9925-48F2D3914710.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/34271E78-314A-4699-B1F3-8BF78E17BD4F.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/523f7be4910a432c92ccb0f95d48f08f.mov",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/722D1FE7-FD09-45D1-A37D-9D8E9479E498.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/741BCB91-9D60-48B7-824F-F45385A85514.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/741BCB91-9D60-48B7-824F-F45385A85514.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/8B86FAC9-5A6A-4FB8-AC85-A66E704BC139.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/CF7995DA-7D03-47A4-9CD7-1592CDC288D1.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/F6FE2C3F-6DE1-45B2-8947-211013C16C45.jpg",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0044.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0052.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0074.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0076.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0080.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0092.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0097.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0103.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0118.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0134.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0161.MP4",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0165.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0520.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_0573.MOV",
+      "file:///C:/Users/sagar/Downloads/PORTFOLIO/Photos-1-001/IMG_9879.MOV"
+    ].filter((src) => /\.(jpg|jpeg|png|mp4|mov|webm|avi)$/i.test(src));
+
+    const shuffle = (arr) => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    };
+
+    const track = document.getElementById("mediaTrack");
+    if (track) {
+      const items = [...shuffle(mediaFiles), ...shuffle(mediaFiles)];
+      track.innerHTML = items.map((src) => {
+        const isVideo = src.toLowerCase().endsWith(".mp4") || src.toLowerCase().endsWith(".mov") || src.toLowerCase().endsWith(".webm") || src.toLowerCase().endsWith(".avi");
+        return `
+          <div class="media-card">
+            ${isVideo ? `<video src="${src}" autoplay muted loop playsinline preload="auto"></video>` : `<img src="${src}" alt="EK Engineering media" />`}
+          </div>
+        `;
+      }).join("");
+    }
+
+    const fixedWingGallery = document.getElementById("fixedWingGallery");
+    if (fixedWingGallery) {
+      const photoSources = fixedWingMediaFiles.filter(src => !/\.(mp4|mov|webm|avi)$/i.test(src));
+      const videoSources = fixedWingMediaFiles.filter(src => /\.(mp4|mov|webm|avi)$/i.test(src));
+
+      const buildColumn = (items, type) => {
+        const combined = [...items, ...items];
+        return combined.map((src, index) => {
+          const extraClass = (index % 3 === 0) ? ' tall' : '';
+          const isVideo = type === 'video';
+          return `
+            <div class="cascade-item${extraClass}">
+              ${isVideo ? `<video src="${src}" autoplay muted loop playsinline preload="auto"></video>` : `<img src="${src}" alt="Fixed-wing design ${type}" />`}
+            </div>
+          `;
+        }).join("");
+      };
+
+      fixedWingGallery.innerHTML = `
+        <div class="cascade-column">
+          <div class="cascade-track">${buildColumn(photoSources, 'photo')}</div>
+        </div>
+        <div class="cascade-column">
+          <div class="cascade-track">${buildColumn(videoSources, 'video')}</div>
+        </div>
+      `;
+    }
+
+    function openMail(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const msg = document.getElementById("msg").value.trim();
+      const to = "sagar.p.tailor@gmail.com";
+      const subject = encodeURIComponent("Portfolio contact — " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        msg
+      );
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
