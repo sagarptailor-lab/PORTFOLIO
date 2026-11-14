@@ -527,9 +527,25 @@
             <div class="pill">CFD / ANSYS</div>
           </div>
           <ul>
-            <li><b>Goal:</b> Develop and validate a 2D CFD model of the Eppler E387 airfoil for low-Reynolds-number flow conditions.</li>
-            <li><b>Approach:</b> Performed mesh generation, solver setup, and aerodynamic analysis in ANSYS Fluent at Reynolds numbers of 200,000 and 300,000.</li>
-            <li><b>Outcome:</b> Compared k–ω SST and Transition SST models against UIUC wind-tunnel data and demonstrated improved accuracy with Transition SST.</li>
+            <li><b>Goal:</b> Investigate the accuracy of k–ω SST and Transition SST (γ–Reθ) turbulence models for predicting the aerodynamic behaviour of the E387 airfoil at low Reynolds numbers. The objective was to determine which modelling approach better represents transitional flow and to validate the CFD predictions against experimental wind-tunnel data.</li>
+            <li><b>Approach:</b> Independently developed a 2D E387 airfoil CFD model in ANSYS Fluent at Re = 200,000 and 300,000.
+
+Simulated multiple angles of attack using both k–ω SST and Transition SST models.
+
+Extracted and compared lift coefficient, drag coefficient and lift-to-drag ratio against UIUC experimental data.
+
+Quantified prediction errors for each model and operating condition rather than relying solely on solver convergence.
+
+Analysed pressure, skin-friction and velocity contours to investigate boundary-layer transition, separation and stall behaviour.
+
+Identified the limitations of steady RANS modelling at higher angles of attack where the solutions became oscillatory and separation-dominated.</li>
+            <li><b>Outcome:</b> Demonstrated that Transition SST generally provided better agreement with experimental data in the stable pre-stall region.
+
+Achieved lift-prediction errors as low as 0.5% at Re = 200,000 and 1.8% at Re = 300,000 using Transition SST.
+
+Found that k–ω SST produced drag-prediction errors exceeding 40% at several Re = 200,000 conditions, highlighting the importance of transition modelling for low-Reynolds-number applications.
+
+Established that CFD model selection and validation significantly influence the reliability of predicted aerodynamic performance.</li>
           </ul>
           <div class="links" style="display:flex">
             <a class="btn" href="REPORT AEROSPACE APPLICATION 1.pdf" target="_blank" rel="noopener noreferrer">Report &amp; Case Study</a>
