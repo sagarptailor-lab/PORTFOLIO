@@ -75,11 +75,8 @@
     /* Hero */
     .hero{
       padding:46px 0 22px;
-      display:grid; grid-template-columns: 1.35fr .65fr; gap:22px;
+      display:grid; grid-template-columns:1fr; gap:22px;
       align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
     }
 
     .card{
@@ -134,29 +131,6 @@
     .btn.primary:hover{filter:saturate(1.05) brightness(1.02)}
     .btn small{font-weight:700; opacity:.95}
 
-    .hero-right{
-      padding:18px;
-      display:flex; flex-direction:column; gap:12px;
-    }
-    .profile-photo-wrap{
-      background: rgba(11,16,32,.45);
-      border:1px solid rgba(30,42,85,.75);
-      border-radius: 16px;
-      padding:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .profile-photo{
-      width:100%;
-      max-width:260px;
-      aspect-ratio: 4 / 5;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(124,58,237,.5);
-      box-shadow: 0 18px 40px rgba(124,58,237,.18);
-      display:block;
-    }
     .stat{
       padding:16px;
       display:grid; gap:6px;
@@ -258,6 +232,10 @@
       line-height:1.55;
       font-size:14px;
     }
+    .proj > ul > li{margin-top:12px}
+    .proj > ul > li:first-child{margin-top:0}
+    .proj > ul > li > ul{margin:6px 0 0; padding-left:20px}
+    .proj > ul > li > ul > li{margin-top:4px}
     .proj li p{margin:0}
     .proj .links{
       justify-content:flex-start;
@@ -297,6 +275,86 @@
       background:#091120;
     }
     .media-shell:hover .media-track{animation-play-state: paused;}
+
+    .video-intro{
+      position:relative;
+      height:calc(100vh - 63px);
+      height:calc(100svh - 63px);
+      min-height:calc(100vh - 63px);
+      min-height:calc(100svh - 63px);
+      margin:0;
+      overflow:hidden;
+      isolation:isolate;
+      background:#070A12;
+    }
+    .video-intro-image,
+    .video-intro-shade{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+    }
+    .video-intro-image{
+      object-fit:cover;
+      object-position:center;
+      pointer-events:none;
+    }
+    @media (min-width:901px){
+      .video-intro-image{
+        inset:0 0 0 auto;
+        width:auto;
+        max-width:68%;
+        height:100%;
+        object-fit:contain;
+        object-position:right center;
+      }
+    }
+    .video-intro-shade{
+      background:
+        linear-gradient(90deg, rgba(7,10,18,.82), rgba(7,10,18,.25) 75%),
+        linear-gradient(0deg, rgba(7,10,18,.72), transparent 70%);
+    }
+    .video-intro-content{
+      position:relative;
+      z-index:1;
+      display:flex;
+      min-height:inherit;
+      max-width:1100px;
+      margin:0 auto;
+      padding:clamp(36px, 8vw, 100px) 28px clamp(48px, 8vh, 72px);
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-end;
+    }
+    .video-intro-label{
+      margin:0 0 14px;
+      color:#A9B4D0;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .video-intro h1{
+      max-width:720px;
+      margin:0;
+      font-size:clamp(48px, 8vw, 88px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      text-wrap:balance;
+    }
+    .video-intro-copy{
+      max-width:550px;
+      margin:20px 0 0;
+      color:#D2D9EC;
+      font-size:clamp(16px, 2vw, 19px);
+      line-height:1.6;
+    }
+    .video-intro .btn{margin-top:26px}
+    .video-intro .youtube-cta{
+      padding:17px 22px;
+      font-size:clamp(16px, 2vw, 20px);
+      box-shadow:0 12px 32px rgba(34,211,238,.22);
+    }
 
     .cascade-gallery{
       display:grid;
@@ -418,6 +476,7 @@
       </div>
 
       <nav class="links" aria-label="Primary">
+        <a href="#profile">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
@@ -428,8 +487,21 @@
     </div>
   </div>
 
+  <section class="video-intro" aria-labelledby="video-intro-title">
+    <img class="video-intro-image" src="photo.jpeg" alt="" aria-hidden="true" />
+    <div class="video-intro-shade" aria-hidden="true"></div>
+    <div class="video-intro-content">
+      <p class="video-intro-label">Aerospace Engineer · Dubai, UAE</p>
+      <h1 id="video-intro-title">Get to know me.</h1>
+      <p class="video-intro-copy">The curiosity, hands-on experiences, and engineering journey behind my work.</p>
+      <a class="btn primary youtube-cta" href="https://youtu.be/8YhAUcIhGr0" target="_blank" rel="noopener noreferrer">
+        <span>Click here to watch on YouTube</span><small>↗</small>
+      </a>
+    </div>
+  </section>
+
   <main class="wrap">
-    <div class="hero">
+    <div class="hero" id="profile">
       <div class="card hero-left">
         <div class="kicker"><span class="dot"></span> Aerospace Engineer</div>
         <h1>Designing insight,<br>driven by aviation.</h1>
@@ -455,11 +527,6 @@ This portfolio showcases the projects, experiences, and lessons that have shaped
         </div>
       </div>
 
-      <div class="card hero-right">
-        <div class="profile-photo-wrap">
-          <img class="profile-photo" src="photo.jpeg" alt="Sagar Tailor portrait" />
-        </div>
-      </div>
     </div>
 
     <section id="experience">
@@ -514,30 +581,32 @@ This portfolio showcases the projects, experiences, and lessons that have shaped
             <div class="pill">Design / Fabrication</div>
           </div>
           <ul>
-            <li><b>Goal:</b> Design, fabricate and flight-test a functional fixed-wing RC aircraft while integrating aerodynamics, propulsion, structures, flight controls and electronics into a single aircraft system. The project aimed to apply theoretical aerospace concepts to a physical aircraft through an iterative design-build-test process.</li>
-            <li><b>Approach:</b> Developed the aircraft configuration and components using SolidWorks, including the airframe, propulsion arrangement and custom components.
-
-Fabricated a lightweight foam-board aircraft and integrated ailerons, elevator, rudder, servos, motors, ESCs and battery systems.
-
-Designed and 3D-printed custom motor mounts and landing-gear components to address fabrication and integration challenges.
-
-Evaluated the aircraft using thrust-to-weight ratio, wing loading, lift coefficient, drag and stall-speed calculations.
-
-Initially developed and tested a twin-motor configuration.
-
-Investigated instability during physical testing, including yaw behaviour, thrust imbalance, motor alignment and weight distribution.
-
-Redesigned the aircraft around a single-motor configuration, repositioning electronics, modifying the wing and control-system arrangement, and reducing aircraft mass.
-Redesigned the aircraft around a single-motor configuration, repositioning electronics, modifying the wing and control-system arrangement, and reducing aircraft mass.</li>
-            <li><b>Outcome:</b> The redesign reduced aircraft mass from approximately 740 g to 600 g, a 19% reduction.
-
-The final configuration achieved a calculated 1.50 thrust-to-weight ratio.
-
-Successfully transitioned from an unstable twin-motor configuration to controlled powered flight using the redesigned single-motor aircraft.
-
-Used flight-test observations to identify differences between theoretical predictions and real aircraft behaviour, particularly regarding stability, stall behaviour and control response.
-
-Completed an end-to-end design → analysis → fabrication → testing → redesign engineering cycle.</li>
+            <li><b>Goal:</b>
+              <ul>
+                <li>Design, fabricate, and flight-test a fixed-wing RC aircraft integrating aerodynamics, propulsion, structures, flight controls, and electronics.</li>
+                <li>Apply aerospace concepts through an iterative design-build-test process.</li>
+              </ul>
+            </li>
+            <li><b>Approach:</b>
+              <ul>
+                <li>Developed the aircraft configuration and components in SolidWorks, including the airframe, propulsion arrangement, and custom components.</li>
+                <li>Fabricated a lightweight foam-board aircraft and integrated its control surfaces, servos, motors, ESCs, and battery system.</li>
+                <li>Designed and 3D-printed custom motor mounts and landing-gear components to address fabrication and integration challenges.</li>
+                <li>Evaluated thrust-to-weight ratio, wing loading, lift coefficient, drag, and stall speed.</li>
+                <li>Built and tested an initial twin-motor configuration.</li>
+                <li>Investigated instability during testing, including yaw behaviour, thrust imbalance, motor alignment, and weight distribution.</li>
+                <li>Redesigned the aircraft around a single motor, repositioning electronics, modifying the wing and control system, and reducing aircraft mass.</li>
+              </ul>
+            </li>
+            <li><b>Outcome:</b>
+              <ul>
+                <li>Reduced aircraft mass from approximately 740 g to 600 g, a 19% reduction.</li>
+                <li>Achieved a calculated thrust-to-weight ratio of 1.50.</li>
+                <li>Transitioned from an unstable twin-motor setup to controlled powered flight with the redesigned aircraft.</li>
+                <li>Used flight tests to identify differences between theoretical predictions and real aircraft stability, stall behaviour, and control response.</li>
+                <li>Completed an end-to-end design, analysis, fabrication, testing, and redesign cycle.</li>
+              </ul>
+            </li>
           </ul>
 
           <div class="cascade-gallery" id="fixedWingGallery" aria-label="Fixed-wing aircraft media gallery"></div>
@@ -554,25 +623,30 @@ Completed an end-to-end design → analysis → fabrication → testing → rede
             <div class="pill">CFD / ANSYS</div>
           </div>
           <ul>
-            <li><b>Goal:</b> Investigate the accuracy of k–ω SST and Transition SST (γ–Reθ) turbulence models for predicting the aerodynamic behaviour of the E387 airfoil at low Reynolds numbers. The objective was to determine which modelling approach better represents transitional flow and to validate the CFD predictions against experimental wind-tunnel data.</li>
-            <li><b>Approach:</b> Independently developed a 2D E387 airfoil CFD model in ANSYS Fluent at Re = 200,000 and 300,000.
-
-Simulated multiple angles of attack using both k–ω SST and Transition SST models.
-
-Extracted and compared lift coefficient, drag coefficient and lift-to-drag ratio against UIUC experimental data.
-
-Quantified prediction errors for each model and operating condition rather than relying solely on solver convergence.
-
-Analysed pressure, skin-friction and velocity contours to investigate boundary-layer transition, separation and stall behaviour.
-
-Identified the limitations of steady RANS modelling at higher angles of attack where the solutions became oscillatory and separation-dominated.</li>
-            <li><b>Outcome:</b> Demonstrated that Transition SST generally provided better agreement with experimental data in the stable pre-stall region.
-
-Achieved lift-prediction errors as low as 0.5% at Re = 200,000 and 1.8% at Re = 300,000 using Transition SST.
-
-Found that k–ω SST produced drag-prediction errors exceeding 40% at several Re = 200,000 conditions, highlighting the importance of transition modelling for low-Reynolds-number applications.
-
-Established that CFD model selection and validation significantly influence the reliability of predicted aerodynamic performance.</li>
+            <li><b>Goal:</b>
+              <ul>
+                <li>Compare k–ω SST and Transition SST (γ–Reθ) predictions for the E387 airfoil at low Reynolds numbers.</li>
+                <li>Determine which model better represents transitional flow by validating against experimental wind-tunnel data.</li>
+              </ul>
+            </li>
+            <li><b>Approach:</b>
+              <ul>
+                <li>Developed a 2D E387 airfoil CFD model in ANSYS Fluent at Re = 200,000 and 300,000.</li>
+                <li>Simulated multiple angles of attack using both turbulence models.</li>
+                <li>Compared lift coefficient, drag coefficient, and lift-to-drag ratio against UIUC experimental data.</li>
+                <li>Quantified prediction errors for each model and operating condition, beyond checking solver convergence.</li>
+                <li>Analysed pressure, skin-friction, and velocity contours to investigate transition, separation, and stall behaviour.</li>
+                <li>Identified limitations of steady RANS modelling at higher angles of attack, where solutions became oscillatory and separation-dominated.</li>
+              </ul>
+            </li>
+            <li><b>Outcome:</b>
+              <ul>
+                <li>Found that Transition SST generally agreed better with experimental data in the stable pre-stall region.</li>
+                <li>Achieved lift-prediction errors as low as 0.5% at Re = 200,000 and 1.8% at Re = 300,000 using Transition SST.</li>
+                <li>Found k–ω SST drag-prediction errors above 40% at several Re = 200,000 conditions, showing the value of transition modelling at low Reynolds numbers.</li>
+                <li>Demonstrated that model selection and validation significantly affect the reliability of CFD predictions.</li>
+              </ul>
+            </li>
           </ul>
           <div class="links" style="display:flex">
             <a class="btn" href="REPORT AEROSPACE APPLICATION 1.pdf" target="_blank" rel="noopener noreferrer">Report &amp; Case Study</a>
@@ -588,9 +662,23 @@ Established that CFD model selection and validation significantly influence the 
             <div class="pill">Research / Innovation</div>
           </div>
           <ul>
-            <li><b>Role:</b> Selected as 1 of 5 student volunteers in a university-wide pilot partnership between AtkinsRealis and the Roads and Transport Authority.</li>
-            <li><b>Focus:</b> Evaluated drone applications in traffic engineering while considering operational and regulatory constraints.</li>
-            <li><b>Outcome:</b> Contributed to early-stage feasibility research on drone-based monitoring and planning capabilities.</li>
+            <li><b>Role:</b>
+              <ul>
+                <li>Selected as 1 of 5 student volunteers for a university-wide pilot partnership.</li>
+                <li>Worked with AtkinsRealis and the Roads and Transport Authority.</li>
+              </ul>
+            </li>
+            <li><b>Focus:</b>
+              <ul>
+                <li>Evaluated drone applications in traffic engineering.</li>
+                <li>Considered operational and regulatory constraints.</li>
+              </ul>
+            </li>
+            <li><b>Outcome:</b>
+              <ul>
+                <li>Contributed to early-stage feasibility research on drone-based traffic monitoring and planning.</li>
+              </ul>
+            </li>
           </ul>
           <div class="links" style="display:flex">
           </div>
@@ -604,9 +692,32 @@ Established that CFD model selection and validation significantly influence the 
             <div class="pill">Experimental Aerodynamics</div>
           </div>
           <ul>
-            <li><b>Goal:</b> Characterise the existing flow quality of the AF1300 low-speed wind tunnel and determine whether low-cost honeycomb flow-straighteners can improve its performance. Establish an experimental baseline for flow uniformity, angularity, boundary-layer development and flow steadiness, while identifying a practical operating envelope for future aerodynamic testing.</li>
-            <li><p><b>Approach:</b> Develop an experimental methodology for characterising the empty AF1300 test section. Use traversable Pitot-static measurements and the available AFA6/VDAS pressure-acquisition system to obtain velocity and pressure measurements. Characterise velocity variation across the test section to evaluate flow uniformity, and measure velocity profiles close to the tunnel walls at different longitudinal positions to investigate boundary-layer development. Investigate flow angularity in pitch and yaw where the available instrumentation permits, and record time-dependent pressure measurements at fixed locations to assess flow steadiness. Design two removable flow-conditioning concepts using stacked and staggered honeycomb configurations. Develop the designs using CAD and 3D printing so they can be installed and compared without permanently modifying the wind tunnel. Compare both configurations against the uncorrected baseline using consistent experimental conditions.</p></li>
-            <li><p><b>Outcome:</b> The project is currently ongoing, and final experimental results have yet to be established. The completed methodology will provide a structured characterisation of the AF1300's existing flow quality. The experimental comparison will determine whether the stacked or staggered honeycomb configuration provides measurable improvement over the baseline. The final study will establish a usable spatial and operating envelope for future wind-tunnel experiments and provide recommendations for flow conditioning.</p></li>
+            <li><b>Goal:</b>
+              <ul>
+                <li>Characterise the existing flow quality of the AF1300 low-speed wind tunnel.</li>
+                <li>Determine whether low-cost honeycomb flow-straighteners improve flow uniformity, angularity, boundary-layer development, and steadiness.</li>
+                <li>Identify a practical operating envelope for future aerodynamic testing.</li>
+              </ul>
+            </li>
+            <li><b>Approach:</b>
+              <ul>
+                <li>Developed a methodology to characterise the empty AF1300 test section.</li>
+                <li>Used traversable Pitot-static measurements and the AFA6/VDAS pressure-acquisition system to collect velocity and pressure data.</li>
+                <li>Measured velocity variation across the test section to assess flow uniformity.</li>
+                <li>Measured near-wall velocity profiles at multiple longitudinal positions to investigate boundary-layer development.</li>
+                <li>Investigated pitch and yaw flow angularity where instrumentation allowed, and recorded pressure over time to assess flow steadiness.</li>
+                <li>Designed stacked and staggered removable honeycomb flow-conditioning concepts in CAD and 3D-printed them for testing without permanent tunnel modifications.</li>
+                <li>Compared both configurations with the uncorrected baseline under consistent conditions.</li>
+              </ul>
+            </li>
+            <li><b>Outcome:</b>
+              <ul>
+                <li>The project is ongoing; final experimental results have not yet been established.</li>
+                <li>The methodology will provide a structured characterisation of the AF1300's existing flow quality.</li>
+                <li>Testing will determine whether either honeycomb configuration measurably improves flow over the baseline.</li>
+                <li>The final study will define a usable spatial and operating envelope and recommend flow-conditioning options.</li>
+              </ul>
+            </li>
           </ul>
           <div class="links" style="display:flex">
           </div>
