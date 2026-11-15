@@ -75,8 +75,11 @@
     /* Hero */
     .hero{
       padding:46px 0 22px;
-      display:grid; grid-template-columns:1fr; gap:22px;
+      display:grid; grid-template-columns:minmax(0, 1.35fr) minmax(280px, .65fr); gap:22px;
       align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
     }
 
     .card{
@@ -87,6 +90,26 @@
     }
 
     .hero-left{padding:26px}
+    .hero-focus{
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:14px;
+    }
+    .hero-focus-label{
+      margin:0;
+      color:var(--accent2);
+      font-size:12px;
+      font-weight:750;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .hero-focus h2{margin:0; font-size:24px; line-height:1.2}
+    .hero-focus .tags{margin-top:0}
+    @media (min-width:901px){
+      .hero .sub{max-width:none}
+    }
     .kicker{
       display:inline-flex; gap:8px; align-items:center;
       font-size:13px; color:var(--muted);
@@ -519,14 +542,18 @@ This portfolio showcases the projects, experiences, and lessons that have shaped
           <a class="btn" href="#projects">View Work</a>
         </div>
 
-        <div class="tags" style="margin-top:18px">
+      </div>
+
+      <aside class="card hero-focus" aria-labelledby="hero-focus-title">
+        <p class="hero-focus-label">At a glance</p>
+        <h2 id="hero-focus-title">Engineering in practice</h2>
+        <div class="tags">
           <span class="tag accent">Aircraft systems</span>
           <span class="tag violet">CFD &amp; FEA</span>
           <span class="tag orange">Safety-first mindset</span>
           <span class="tag">Dubai, UAE</span>
         </div>
-      </div>
-
+      </aside>
     </div>
 
     <section id="experience">
